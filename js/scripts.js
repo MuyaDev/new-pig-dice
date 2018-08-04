@@ -12,7 +12,26 @@ var pigDice = {
   turnScore: 0,
 };
 
-function dieRoll () {
-  die1 = Math.floor(Math.random()*6) +1;
+function dieRoll() {
+  die1 = Math.floor(Math.random() * 6) + 1;
   return die1;
+}
+
+var playerRoll = function () {
+  var roll = dieRoll();
+  if (roll === 1) {
+    pigDice.turnScore = 0;
+    alertEndTurn();
+    switchPlayer();
+  } else {
+    pigDice.turnScore += roll;
+    if (pigDice.playerUp === 1) {
+      if (pigDice.turnScore + pigDice.player1Score >= 21) {
+        alertWinner(1);
+      }
+    } else if (pigDice.turnScore + pigDice.player2Score >= 21) {
+      alertWinner(2);
+    }
+  }
+  return roll;
 }

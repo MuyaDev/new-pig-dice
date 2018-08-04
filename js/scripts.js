@@ -35,3 +35,14 @@ var playerRoll = function () {
   }
   return roll;
 }
+
+function holdThePig() {
+  var currentPlayer = pigDice.playerUp;
+  if (currentPlayer === 1) {
+    pigDice.player1Score += pigDice.turnScore;
+  } else {
+    pigDice.player2Score += pigDice.turnScore;
+  }
+  pigDice.turnScore = 0;
+  switchPlayer();
+}

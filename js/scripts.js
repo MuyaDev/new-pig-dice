@@ -46,3 +46,17 @@ function holdThePig() {
   pigDice.turnScore = 0;
   switchPlayer();
 }
+
+function switchPlayer() {
+  if (pigDice.playerUp === 1) {
+    $("#player1Button").hide();
+    $("#player2Button").show();
+    pigDice.playerUp = 2;
+
+  } else {
+    $("#player2Button").hide();
+    $("#player1Button").show();
+    pigDice.playerUp = 1;
+
+  }
+}
